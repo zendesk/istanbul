@@ -291,3 +291,11 @@ The following third-party libraries are used by this module:
 
 Since all the good ones are taken. Comes from the loose association of ideas across
 coverage, carpet-area coverage, the country that makes good carpets and so on...
+
+### What has Zendesk changed? 
+
+In the original package, an error is thrown after creating a coverage report: 
+
+`ERROR [coverage]: TypeError: Cannot read property 'text' of undefined`
+
+The error is thrown despite reports being correctly generated. The changes in this fork modify conditional statements that reference `structuredText[startLine]` in the html report generation file to ensure it exists prior to reference in order to mitigate the TypeError.
